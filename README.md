@@ -1,1 +1,2 @@
-# dynamic-web-dev
+# dynamic-web-dev  
+## week 01
