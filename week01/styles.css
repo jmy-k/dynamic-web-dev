@@ -1,0 +1,81 @@
+body {
+    position: relative;
+}
+
+#resizable {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    min-width: 140px;
+    min-height: 240px;
+    max-width: 1080px;
+    max-height: 1200px;
+
+    resize: both;
+    overflow: hidden;
+    top: 40vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    background: pink;
+    background-image: url(./src/sky.jpg);
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+#testLink {
+    position: absolute;
+    top: 10vh;
+    left: 20vw;
+    color: white;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+} */
