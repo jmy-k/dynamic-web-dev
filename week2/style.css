@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#NYC {
+    position: fixed;
+    top: 0;
+    left: 40%;
+    color: white;
+    opacity: 0.5;
+    font-size: 25em;
+}
+
+.line {
+    position: absolute;
+}
+
+.verticalLine {
+    height: 200vh;
+    background-color: black;
+}
+
+.verticalLine.thick {
+    width: 5vw;
+}
+
+.verticalLine.med {
+    width: 1vw;
+}
+
+.verticalLine.thin {
+    width: 0.5vw;
+}
+
+.horizontalLine {
+    width: 100%;
+    background-color: black;
+
+}
+
+.horizontalLine.thick {
+    height: 5vw;
+}
+
+.horizontalLine.med {
+    height: 1vw;
+}
+
+.horizontalLine.thin {
+    height: 0.5vw;
+}
+
+#line1 {
+    left: 10%;
+    top: 0;
+
+}
+
+#line2 {
+    left: 20%;
+    top: 0;
+
+}
+
+#line3 {
+    left: 25%;
+    top: 0;
+
+}
+
+#line4 {
+    left: 70%;
+    top: 0;
+
+}
+
+#line5 {
+    top: 30%;
+    left: 0;
+
+}
+
+#line6 {
+    top: 40%;
+    left: 0;
+
+}
+
+#line7 {
+    top: 70%;
+    left: 0;
+
+}
+
+#line8 {
+    top: 80%;
+    left: 0;
+
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    height: 100vh;
+
+}
+
+.grid {
+    border: 1px solid black;
+}
+
+#grid1 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+#grid2 {
+    grid-column: span 1;
+    grid-row: span 4;
+}
+
+#grid3 {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+#grid4 {
+    grid-column: span 1;
+    grid-row: span 3;
+}
+
+#grid5 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+#grid6 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+#grid7 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+#grid8 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+#grid9 {
+    grid-column: span 3;
+    grid-row: span 3;
+}
+
+#grid10 {
+    grid-column: span 1;
+    grid-row: span 4;
+}
