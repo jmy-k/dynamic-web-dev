@@ -21,7 +21,7 @@ body {
 #NYC {
     position: fixed;
     width: 50vw;
-    top: 30%;
+    top: 50%;
     left: 40%;
     font-size: 15rem;
     pointer-events: none;
