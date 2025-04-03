@@ -2,56 +2,72 @@ const lineElements = document.querySelectorAll('.line');
 const lineArray = Array.from(lineElements);
 const body = document.querySelector("body");
 
-let lastScrollTop = 0;
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
 document.addEventListener("DOMContentLoaded", () => {
     lineArray.forEach(line => {
         line.setAttribute("original-left", window.getComputedStyle(line).left);
-        line.setAttribute("original-top", window.getComputedStyle(line).top)
+        line.setAttribute("original-top", window.getComputedStyle(line).top);
+        line.dataset.left = window.getComputedStyle(line).left; // store current left as it moves
+        line.dataset.top = window.getComputedStyle(line).top; // store current top
     });
-
-    console.log(lineArray)
 });
+
+document.addEventListener("click", () => {
+    let hoverLines = document.querySelectorAll(".hoverLine");
+    hoverLines.forEach(line => {
+        line.remove();
+    });
+})
 
 document.addEventListener("scroll", () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDelta = scrollTop - lastScrollTop; // diff in scroll position
 
-    if (scrollTop > lastScrollTop) {
-        // Scroll down
-        for (let i = 0; i < lineArray.length; i++) {
-            const line = lineArray[i];
+    lineArray.forEach(line => {
+        let currentLeft = parseFloat(line.dataset.left);
+        let currentTop = parseFloat(line.dataset.top);
+        let originalLeft = parseFloat(line.getAttribute("original-left"));
+        let originalTop = parseFloat(line.getAttribute("original-top"));
+
+        if (scrollDelta > 0) { // scroll down - move outward
             if (line.classList.contains("verticalLine")) {
-                const computedStyle = window.getComputedStyle(line);
-                if (parseFloat(computedStyle.left) > window.innerWidth * 0.5) { // if vertical line is on the right side of the screen  
-                    line.style.left = "110vw"; // make it go right
-                } else { // if its on the left side of the screen
-                    line.style.left = "-10vw"; // make it go left
+                if (originalLeft > window.innerWidth * 0.5) { // right side - go right
+                    line.dataset.left = `${currentLeft + scrollDelta * 0.5}px`;
+                } else { // left side - go left
+                    line.dataset.left = `${currentLeft - scrollDelta * 0.5}px`;
                 }
             }
 
             if (line.classList.contains("horizontalLine")) {
-                const computedStyle = window.getComputedStyle(line);
-                if (parseFloat(computedStyle.top) > window.innerHeight * 0.7) { // if horizontal line is on the bottom side ISHHH of the screen
-                    line.style.top = "210vh"; // make it go down
-                } else { // if on top side of the screen
-                    line.style.top = "-10vh"; // make it go up
+                if (originalTop > window.innerHeight * 0.7) { // bottom side - go down
+                    line.dataset.top = `${currentTop + scrollDelta * 0.5}px`;
+                } else { // top side - go up
+                    line.dataset.top = `${currentTop - scrollDelta * 0.5}px`;
+                }
+            }
+        } else { // scroll up - revert to original position
+            if (line.classList.contains("verticalLine")) {
+                if (originalLeft > window.innerWidth * 0.5) { // right side
+                    line.dataset.left = `${Math.max(originalLeft, currentLeft + scrollDelta * 0.5)}px`;
+                } else { // left side - move left
+                    line.dataset.left = `${Math.min(originalLeft, currentLeft - scrollDelta * 0.5)}px`;
+                }
+            }
+
+            if (line.classList.contains("horizontalLine")) {
+                if (originalTop > window.innerHeight * 0.7) { // bottom side
+                    line.dataset.top = `${Math.max(originalTop, currentTop + scrollDelta * 0.5)}px`;
+                } else { // top side
+                    line.dataset.top = `${Math.min(originalTop, currentTop - scrollDelta * 0.5)}px`;
                 }
             }
         }
-    } else {
-        // reset to original position on scroll up
-        for (let i = 0; i < lineArray.length; i++) {
-            const line = lineArray[i];
-            if (line.classList.contains("verticalLine")) {
-                const originalLeft = line.getAttribute("original-left");
-                line.style.left = originalLeft;
-            }
-            if (line.classList.contains("horizontalLine")) {
-                const originalTop = line.getAttribute("original-top");
-                line.style.top = originalTop;
-            }
-        }
-    }
+
+        // updated positions
+        line.style.left = line.dataset.left;
+        line.style.top = line.dataset.top;
+    });
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // prevent negative values
 });
@@ -64,7 +80,7 @@ for (let i = 0; i < lineArray.length; i++) {
             const hoverLine = document.createElement("div");
             hoverLine.classList.add("hoverLine");
             hoverLine.style.width = window.getComputedStyle(line).width;
-            hoverLine.style.height = 210 + "vh";
+            hoverLine.style.height = 240 + "vh";
             hoverLine.style.left = (parseFloat(window.getComputedStyle(line).left) + 10) + "px";
 
             // colors based on index

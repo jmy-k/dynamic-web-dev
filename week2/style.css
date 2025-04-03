@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Helvetica, Arial, sans-serif
 }
 
 body {
@@ -20,22 +20,49 @@ body {
 
 #NYC {
     position: fixed;
-    top: 15%;
+    width: 50vw;
+    top: 30%;
     left: 40%;
-    color: white;
-    opacity: 0.5;
     font-size: 15rem;
     pointer-events: none;
+    line-height: 12rem;
+    text-align: end;
+}
+
+#NYC,
+.trainNames {
+    opacity: 0.5;
+    color: white;
+}
+
+#trainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 10%;
+    height: 225vh;
+}
+
+.trainNames {
+    font-size: 3rem;
+    pointer-events: none;
+    line-height: 1rem;
+    text-align: start;
+    height: fit-content;
+    font-weight: bold;
 }
 
 .line {
     position: absolute;
+    transition: all 0.8s cubic-bezier(0.25, 1.5, 0.5, 1);
+    /* used AI to figure out a "natural" looking bounce*/
 }
 
 .verticalLine {
     height: 210vh;
     background-color: black;
-    transition: left 3s ease-in-out;
+    /* transition: left 3s ease-in-out; */
 }
 
 .verticalLine.thick {
