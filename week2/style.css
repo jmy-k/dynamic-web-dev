@@ -11,6 +11,7 @@ body {
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: #FAF9F6;
 }
 
 ::-webkit-scrollbar {
@@ -19,11 +20,12 @@ body {
 
 #NYC {
     position: fixed;
-    top: 0;
+    top: 15%;
     left: 40%;
     color: white;
     opacity: 0.5;
-    font-size: 25em;
+    font-size: 15rem;
+    pointer-events: none;
 }
 
 .line {
@@ -31,8 +33,9 @@ body {
 }
 
 .verticalLine {
-    height: 200vh;
+    height: 210vh;
     background-color: black;
+    transition: left 3s ease-in-out;
 }
 
 .verticalLine.thick {
@@ -50,6 +53,7 @@ body {
 .horizontalLine {
     width: 100%;
     background-color: black;
+    /* transition: top 3s ease-in-out; */
 
 }
 
@@ -65,20 +69,29 @@ body {
     height: 0.5vw;
 }
 
+
+.hoverLine {
+    position: absolute;
+    /* background-color: #0039A6; */
+    opacity: 0.5;
+    z-index: -1;
+}
+
+
 #line1 {
-    left: 10%;
+    left: 15%;
     top: 0;
 
 }
 
 #line2 {
-    left: 20%;
+    left: 25%;
     top: 0;
 
 }
 
 #line3 {
-    left: 25%;
+    left: 30%;
     top: 0;
 
 }
@@ -111,6 +124,29 @@ body {
     top: 80%;
     left: 0;
 
+}
+
+#line9 {
+    top: 10%;
+    left: 0;
+
+}
+
+#line10 {
+    top: 120%;
+    left: 0;
+
+}
+
+#line11 {
+    top: 160%;
+    left: 0;
+
+}
+
+#line12 {
+    top: 0;
+    left: 80%;
 }
 
 .gridContainer {
