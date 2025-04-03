@@ -12,3 +12,6 @@ i started with some simple black lines that go vertically or horizontally across
 to introduce colors, the black lines leave a colored "shadow" on hover. they are offset by a few pixels for effect. i used AI to determine the CSS transition for ```cubic-bezier```, for a bouncy effect as the lines move.
 
 on click, all of the colored lines will disappear.
+
+
+as more colored lines are added, the text will become more apparent.
