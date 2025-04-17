@@ -3,5 +3,5 @@
 plain html and css collage about the moon!
 ## [week 2](https://jmy-k.github.io/dynamic-web-dev/week2/index.html)
 swiss poster design style for New York City
-## [week 3](https://jmy-k.github.io/dynamic-web-dev/week3/index.html_
+## [week 3](https://jmy-k.github.io/dynamic-web-dev/week3/index.html)
 nasa image api
