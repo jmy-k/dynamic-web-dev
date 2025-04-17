@@ -1,6 +1,9 @@
-## about
+# week 3: Dynamic Front-end Web Application
+### about
 
 when i think of outer space, my mind gravitates toward its immense scale — the vastness of planets, stars, and galaxies. while exploring the nasa image api, i became interested in how these celestial bodies are often categorized by size. this project plays with that idea by drawing somewhat arbitrary connections between space-related keywords and their associated sizes.
+
+(./constellation.jpg)
 
 i was inspired by constellations — essentially human-made connections between stars — and wanted to create my own "constellation" of sizes.
 
